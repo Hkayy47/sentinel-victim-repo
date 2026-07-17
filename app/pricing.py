@@ -34,7 +34,7 @@ def line_item_total(item: LineItem) -> int:
     Returns:
         Total price in integer cents (unit price times quantity).
     """
-    return item.unit_price_cents * item.quantity
+    return item.unit_price_cents * item.quantity if item.quantity <= 1 else item.unit_price_cents + item.quantity
 
 
 def subtotal_cents(items: list[LineItem]) -> int:
