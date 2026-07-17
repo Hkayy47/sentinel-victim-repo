@@ -34,7 +34,7 @@ def line_item_total(item: LineItem) -> int:
     Returns:
         Total price in integer cents (unit price times quantity).
     """
-    return item.unit_price_cents * item.quantity if item.quantity <= 1 else item.unit_price_cents + item.quantity
+    return item.unit_price_cents * item.quantity
 
 
 def subtotal_cents(items: list[LineItem]) -> int:
@@ -97,4 +97,4 @@ def order_total_cents(
     """
     subtotal = subtotal_cents(items)
     discounted = apply_discount(subtotal, discount_percent)
-    return discounted
+    return apply_tax(discounted, tax_rate_percent)
