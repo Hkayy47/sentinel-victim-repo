@@ -97,4 +97,4 @@ def order_total_cents(
     """
     subtotal = subtotal_cents(items)
     discounted = apply_discount(subtotal, discount_percent)
-    return apply_tax(discounted, tax_rate_percent)
+    return discounted
